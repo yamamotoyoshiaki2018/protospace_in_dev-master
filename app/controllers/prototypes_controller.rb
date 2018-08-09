@@ -28,6 +28,18 @@ class PrototypesController < ApplicationController
    end
   end
 
+  def edit
+      @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+      prototype = Prototype.find(params[:id])
+      if prototype.user_id == current_user.id
+        prototype.update(prototype_params)
+      end
+  end
+
+
   private
 
   def set_prototype

@@ -41,10 +41,10 @@
   .container
     - if current_user
       = form_tag("/prototypes/#{@prototype.id}/comments", method: :post) do
-        %textarea{:cols => "30", :name => "text", :placeholder => "comment", :rows => "1"}
+        %textarea{:cols => "100", :name => "text", :placeholder => "leave your comment", :rows => "2"}
         %input{:type => "submit", :value => "SEND COMMENT"}/
   .comments
-    %h4 コメント一覧
+    %h4 Comments
     - if @comments
       - @comments.each do |comment|
         %p

@@ -8,6 +8,11 @@ class PrototypesController < ApplicationController
   def new
     @prototype = Prototype.new
     @prototype.captured_images.build
+    if @prototype.save
+      redirect_to action: :create, notice: '新規投稿が完了しました。'
+    else
+      render :new
+    end
   end
 
   def create

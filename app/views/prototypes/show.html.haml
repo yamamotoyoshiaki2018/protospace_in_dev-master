@@ -40,8 +40,8 @@
 
   .container
     - if current_user
-      = form_tag("/prototypes/#{@prototype.id}/comments", method: :post) do
-        %textarea{:cols => "100", :name => "text", :placeholder => "leave your comment", :rows => "2"}
+      = form_tag("/prototypes/#{@prototype.id}/comments", method: :post, id: "new_comment") do
+        %textarea.textbox{:cols => "100", :name => "text", :placeholder => "Leave your comment", :rows => "2"}
         %input{:type => "submit", :value => "SEND COMMENT"}/
   .comments
     %h4 Comments

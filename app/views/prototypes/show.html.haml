@@ -50,4 +50,6 @@
         %p
           %strong= link_to comment.user.name, "/users/#{comment.user_id}"
           = comment.text
+          - if comment.user == current_user
+            %p= link_to '削除', prototype_comment_path(comment.prototype_id, comment.id), method: :delete, remote: true
 

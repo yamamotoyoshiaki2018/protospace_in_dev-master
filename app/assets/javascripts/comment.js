@@ -6,6 +6,9 @@ $(function(){
                     :
                   </strong>
                     ${comment.text}
+                    <p>
+                    <a href=/prototypes/${comment.prototype_id}/comments/${comment.id} data-remote="true" rel="nofollow" data-method="delete" >削除</a>
+                    </p>
                 </p>`
     return html;
   }

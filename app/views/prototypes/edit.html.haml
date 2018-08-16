@@ -3,6 +3,7 @@
     = f.hidden_field :user_id, value: current_user.id
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
+        %h3 [  編集する  ]
         .col-md-12
           %h4 Title
           .proto-new-title
@@ -33,4 +34,4 @@
           %h4 Concept
           = f.text_area :concept, required: true, placeholder: "Input Concept"
       .row.text-center.proto-btn
-        = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
+        = f.submit "編集しちゃうよ？", id: "button", class: "btn btn-lg btn-primary btn-block"

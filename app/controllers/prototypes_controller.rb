@@ -1,13 +1,18 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: [:show, :destroy]
+  before_action :set_prototype, only: [:show, :destroy, :edit, :update]
 
   def index
-    @prototypes = Prototype.all.order("created_at DESC").page(params[:page]).per(2)
+    @prototypes = Prototype.all.order("created_at DESC").page(params[:page]).per(4)
   end
 
   def new
     @prototype = Prototype.new
     @prototype.captured_images.build
+    if @prototype.save
+      redirect_to action: :create, notice: '新規投稿が完了しました。'
+    else
+      render :new
+    end
   end
 
   def create
@@ -29,14 +34,14 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-      @prototype = Prototype.find(params[:id])
+    # @prototype = Prototype.find(params[:id])
   end
 
   def update
-      prototype = Prototype.find(params[:id])
-      if prototype.user_id == current_user.id
-        prototype.update(prototype_params)
-      end
+    if @prototype.user_id == current_user.id
+      @prototype.update(prototype_params)
+      redirect_to action: :show
+    end
   end
 
 

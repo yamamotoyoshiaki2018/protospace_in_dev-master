@@ -22,3 +22,6 @@ class Prototype < ActiveRecord::Base
     created_at.strftime('%b %d %a')
   end
 end
+
+
+

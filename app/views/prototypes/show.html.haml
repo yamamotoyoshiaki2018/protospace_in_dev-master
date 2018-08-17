@@ -37,3 +37,19 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+
+  .container
+    - if current_user
+      = form_tag("/prototypes/#{@prototype.id}/comments", method: :post, id: "new_comment") do
+        %textarea.textbox{:cols => "100", :name => "text", :placeholder => "Leave your comment", :rows => "2"}
+        %input{:type => "submit", :value => "SEND COMMENT"}/
+  .comments
+    %h4 Comments
+    - if @comments
+      - @comments.each do |comment|
+        %p
+          %strong= link_to comment.user.name, "/users/#{comment.user_id}"
+          = comment.text
+          - if comment.user == current_user
+            %p= link_to '削除', prototype_comment_path(comment.prototype_id, comment.id), method: :delete, remote: true
+

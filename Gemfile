@@ -27,3 +27,4 @@ group :development do
 end
 
 gem 'kaminari'
+gem 'rails_12factor', group: :production

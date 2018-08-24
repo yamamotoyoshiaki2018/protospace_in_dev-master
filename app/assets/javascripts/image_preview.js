@@ -21,8 +21,6 @@ $(function(){
                   src: e.target.result,
                   value: "main",
                   status: 0
-                  width: "730px",
-                  height: "500px"
               }));
 
       };
